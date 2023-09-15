@@ -10,16 +10,10 @@
 *
 ********************************************************************************/ 
 
-
-var HTTP_PORT = process.env.PORT || 8080;
-var express = require("express");
-var app = express();
-
-// setup a 'route' to listen on the default url path
-app.get("/", (req, res) => {
-    res.send("Daniel Fu - 153024229");
-});
-
-// setup http server to listen on HTTP_PORT
-app.listen(HTTP_PORT);
-
+const express = require('express')
+const app = express()
+app.all('/', (req, res) => {
+    console.log("Just got a request!")
+    res.send('Daniel Fu - 153024229')
+})
+app.listen(process.env.PORT || 3000)
